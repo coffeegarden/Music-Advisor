@@ -1,0 +1,35 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          spotify:
+            client-id: <client-id>
+            client-secret: <client-secret>
+            scope:
+              - user-library-read
+              - user-read-private
+              - user-read-email
+              - playlist-read-collaborative
+            authorization-grant-type: authorization_code
+            client-authentication-scheme: form
+            authentication-scheme: query
+            redirect-uri: "{baseUrl}/login/oauth2/code/spotify"
+        provider:
+          spotify:
+            authorization-uri:  https://accounts.spotify.com/authorize
+            token-uri: https://accounts.spotify.com/api/token
+            user-info-uri: https://api.spotify.com/v1/me
+            user-name-attribute: display_name
+  thymeleaf:
+    cache: false
+
+server:
+  port: 8080
+
+
+
+
+
+
+

@@ -29,6 +29,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
                 .oauth2Login()
-                .defaultSuccessUrl("/user");
+                .defaultSuccessUrl("/main");
     }
 }

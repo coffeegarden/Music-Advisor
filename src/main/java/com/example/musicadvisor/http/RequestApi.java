@@ -1,7 +1,7 @@
-package com.example.musicadvicor.http;
+package com.example.musicadvisor.http;
 
-import com.example.musicadvicor.model.albums.Albums;
-import com.example.musicadvicor.model.albums.AlbumsRoot;
+import com.example.musicadvisor.model.albums.Albums;
+import com.example.musicadvisor.model.albums.AlbumsRoot;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
 

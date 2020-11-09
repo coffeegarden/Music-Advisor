@@ -29,16 +29,42 @@
         </tr>
         </thead>
         <tbody>
+        <!--/*@thymesVar id="albums" type="com.example.musicadvisor.model.albums.Albums"*/-->
         <tr th:each="album: ${albums}">
             <td th:text="${album.name}"></td>
-            <td><a target="_blank" th:text="${album.artists.get(0)}"
-                                                     th:href="${album.artists.get(0).externalUrls}"></a>
+            <td><!--/*@thymesVar id="artists" type="com.example.musicadvisor.model.albums.Artist"*/-->
+                <a target="_blank" th:text="${album.artists.get(0)}"
+                   th:href="${album.artists.get(0).externalUrls}"></a>
             </td>
             <td th:text="${album.releaseDate}"></td>
             <td><a target="_blank" th:href="${album.externalUrls}">spotify</a></td>
         </tr>
         </tbody>
     </table>
+    <!--/*@thymesVar id="pagination" type="com.example.musicadvisor.model.pagination.Pagination"*/-->
+    <nav aria-label="Pagination" th:if="${pagination.totalPages gt 0}">
+        <ul class="pagination justify-content-center font-weight-bold">
+            <li class="page-item" th:classappend="${pagination.currentPage eq 0} ? 'disabled'">
+                <a class="page-link"
+                   th:href="@{/new-releases(page=${pagination.currentPage})}"
+                   aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item" th:classappend="${i eq pagination.currentPage + 1} ? 'active'"
+                th:each="i : ${#numbers.sequence( 1, pagination.totalPages, 1)}">
+                <a class="page-link" data-toggle="tooltip" th:href="@{/new-releases(page=${i})}"
+                   th:text="${i}" th:title="${'Page '+ i}"></a>
+            </li>
+            <li class="page-item" th:classappend="${pagination.currentPage + 1 eq pagination.totalPages} ? 'disabled'">
+                <a class="page-link"
+                   th:href="@{/new-releases(page=${pagination.currentPage + 2})}"
+                   aria-label="Next" title="Next Page" data-toggle="tooltip">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

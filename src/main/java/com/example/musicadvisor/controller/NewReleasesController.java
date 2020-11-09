@@ -1,6 +1,6 @@
-package com.example.musicadvicor.controller;
+package com.example.musicadvisor.controller;
 
-import com.example.musicadvicor.service.NewReleasesService;
+import com.example.musicadvisor.service.NewReleasesService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

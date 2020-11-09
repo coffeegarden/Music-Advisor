@@ -29,9 +29,11 @@
         </tr>
         </thead>
         <tbody>
+        <!--/*@thymesVar id="albums" type="com.example.musicadvisor.model.albums.Albums"*/-->
         <tr th:each="album: ${albums}">
             <td th:text="${album.name}"></td>
-            <td><a target="_blank" th:text="${album.artists.get(0)}"
+            <td><!--/*@thymesVar id="artists" type="com.example.musicadvisor.model.albums.Artist"*/-->
+                <a target="_blank" th:text="${album.artists.get(0)}"
                    th:href="${album.artists.get(0).externalUrls}"></a>
             </td>
             <td th:text="${album.releaseDate}"></td>
@@ -39,6 +41,7 @@
         </tr>
         </tbody>
     </table>
+    <!--/*@thymesVar id="pagination" type="com.example.musicadvisor.model.pagination.Pagination"*/-->
     <nav aria-label="Pagination" th:if="${pagination.totalPages gt 0}">
         <ul class="pagination justify-content-center font-weight-bold">
             <li class="page-item" th:classappend="${pagination.currentPage eq 0} ? 'disabled'">

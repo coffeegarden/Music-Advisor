@@ -2,12 +2,12 @@ package com.example.musicadvicor.http;
 
 import com.example.musicadvicor.model.albums.Albums;
 import com.example.musicadvicor.model.albums.AlbumsRoot;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Optional;
 
-@Service
+@Repository
 public class RequestApi {
     private WebClient client;
 
@@ -15,9 +15,9 @@ public class RequestApi {
         this.client = client;
     }
 
-    public Optional<Albums> getNewReleases() {
+    public Optional<Albums> getNewReleases(String url) {
         return client.get()
-                .uri("https://api.spotify.com/v1/browse/new-releases?country=PL&limit=10")
+                .uri(url)
                 .retrieve()
                 .bodyToMono(AlbumsRoot.class)
                 .blockOptional()

@@ -32,7 +32,7 @@
         <tr th:each="album: ${albums}">
             <td th:text="${album.name}"></td>
             <td><a target="_blank" th:text="${album.artists.get(0)}"
-                                                     th:href="${album.artists.get(0).externalUrls}"></a>
+                   th:href="${album.artists.get(0).externalUrls}"></a>
             </td>
             <td th:text="${album.releaseDate}"></td>
             <td><a target="_blank" th:href="${album.externalUrls}">spotify</a></td>
@@ -43,7 +43,7 @@
         <ul class="pagination justify-content-center font-weight-bold">
             <li class="page-item" th:classappend="${pagination.currentPage eq 0} ? 'disabled'">
                 <a class="page-link"
-                   th:href="@{/new-releases(page=${pagination.currentPage lt 2 ? 1 : pagination.currentPage})}"
+                   th:href="@{/new-releases(page=${pagination.currentPage})}"
                    aria-label="Previous" title="Previous Page" data-toggle="tooltip">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
@@ -61,13 +61,7 @@
                 </a>
             </li>
         </ul>
-<!--    </nav>-->
-<!--        <div th:if="${pagination.totalPages gt 0}" class="pagination"-->
-<!--             th:each="pageNumber: ${#numbers.sequence(0,pagination.totalPages,1)}">-->
-<!--            <a th:href="@{/listBooks(page=${pageNumber})}"-->
-<!--               th:text=${pageNumber}-->
-<!--               th:class="${pageNumber==pagination.currentPage} ? active"></a>-->
-<!--        </div>-->
+    </nav>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

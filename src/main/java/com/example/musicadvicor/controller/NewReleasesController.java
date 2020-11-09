@@ -1,23 +1,24 @@
 package com.example.musicadvicor.controller;
 
-import com.example.musicadvicor.model.albums.Albums;
-import com.example.musicadvicor.service.SpotifyApiService;
+import com.example.musicadvicor.service.NewReleasesService;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.Optional;
 
 @Controller
+@AllArgsConstructor
 public class NewReleasesController {
-    private SpotifyApiService service;
+    private NewReleasesService service;
 
-    public NewReleasesController(SpotifyApiService service) {
-        this.service = service;
-    }
 
     @GetMapping("/new-releases")
-    public String getMainPage(Model model) {
-        Albums newReleases = service.getNewReleases();
-        model.addAttribute("albums",newReleases.getAlbums());
+    public String getNewReleases(Model model, @RequestParam("page") Optional<Integer> page) {
+        int currentPage = page.orElse(0);
+        service.fetchDataToModel(model,currentPage);
         return "new-releases";
     }
 }

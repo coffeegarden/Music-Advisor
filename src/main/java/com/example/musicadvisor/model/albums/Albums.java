@@ -29,7 +29,7 @@ public class Albums {
     private String href;
 
     @JsonProperty("items")
-    private List<Album> albums;
+    private List<Item> albums;
 
     private String next;
     private int offset;

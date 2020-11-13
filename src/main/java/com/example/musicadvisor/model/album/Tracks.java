@@ -9,8 +9,8 @@ public class Tracks {
     private String href;
     private List<Item> items;
     private Integer limit;
-    private Object next;
+    private String next;
     private Integer offset;
-    private Object previous;
+    private String previous;
     private Integer total;
 }

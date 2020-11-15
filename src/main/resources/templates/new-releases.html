@@ -22,8 +22,8 @@
         <tbody>
         <!--/*@thymesVar id="albums" type="com.example.musicadvisor.model.albums.Albums"*/-->
         <tr th:each="album: ${albums}">
-            <td th:text="${album.name}"></td>
-            <td><!--/*@thymesVar id="artists" type="com.example.musicadvisor.model.albums.Artist"*/-->
+            <td><a th:text="${album.name}" th:href="@{/album(id=${album.id})}"></a></td>
+            <td><!--/*@thymesVar id="artists" type="com.example.musicadvisor.model.Artist"*/-->
                 <a target="_blank" th:text="${album.artists.get(0)}"
                    th:href="${album.artists.get(0).externalUrls}"></a>
             </td>

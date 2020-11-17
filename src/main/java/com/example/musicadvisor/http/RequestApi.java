@@ -1,6 +1,5 @@
 package com.example.musicadvisor.http;
 
-
 import com.example.musicadvisor.model.album.Album;
 import com.example.musicadvisor.model.albums.Albums;
 import com.example.musicadvisor.model.albums.AlbumsRoot;
@@ -27,7 +26,7 @@ public class RequestApi {
     }
 
     public Optional<Album> getAlbum(String url) {
-        return client.get()
+       return client.get()
                 .uri(url)
                 .retrieve()
                 .bodyToMono(Album.class)

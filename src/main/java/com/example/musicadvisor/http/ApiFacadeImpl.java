@@ -29,4 +29,5 @@ public class ApiFacadeImpl implements ApiFacade {
         Optional<Album> album = request.getAlbum(url);
         return album;
     }
+
 }

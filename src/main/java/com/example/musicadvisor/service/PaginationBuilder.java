@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PaginationBuilder {
+
     public Pagination createPagination(Albums albums) {
         int limit = albums.getLimit();
         int offset = albums.getOffset();
@@ -29,4 +30,6 @@ public class PaginationBuilder {
         if (totalPages % limit != 0) pages += 1;
         return pages;
     }
+
+
 }

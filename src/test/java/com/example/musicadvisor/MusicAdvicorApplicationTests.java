@@ -1,4 +1,4 @@
-package com.example.musicadvicor;
+package com.example.musicadvisor;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

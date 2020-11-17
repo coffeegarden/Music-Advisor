@@ -2,6 +2,7 @@ package com.example.musicadvisor.model.album;
 
 import com.example.musicadvisor.model.Artist;
 import com.example.musicadvisor.model.ExternalUrls;
+import com.example.musicadvisor.model.Image;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 

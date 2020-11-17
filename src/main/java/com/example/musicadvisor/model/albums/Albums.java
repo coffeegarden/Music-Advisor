@@ -30,6 +30,7 @@ public class Albums {
 
     @JsonProperty("items")
     private List<Item> albums;
+
     private String next;
     private int offset;
     private String previous;

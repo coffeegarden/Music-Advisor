@@ -29,6 +29,4 @@ public class PaginationBuilder {
         if (totalPages % limit != 0) pages += 1;
         return pages;
     }
-
-
 }

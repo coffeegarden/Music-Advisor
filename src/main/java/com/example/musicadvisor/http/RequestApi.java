@@ -1,5 +1,7 @@
 package com.example.musicadvisor.http;
 
+
+import com.example.musicadvisor.model.album.Album;
 import com.example.musicadvisor.model.albums.Albums;
 import com.example.musicadvisor.model.albums.AlbumsRoot;
 import org.springframework.stereotype.Repository;
@@ -22,5 +24,13 @@ public class RequestApi {
                 .bodyToMono(AlbumsRoot.class)
                 .blockOptional()
                 .map(AlbumsRoot::getAlbums);
+    }
+
+    public Optional<Album> getAlbum(String url) {
+        return client.get()
+                .uri(url)
+                .retrieve()
+                .bodyToMono(Album.class)
+                .blockOptional();
     }
 }

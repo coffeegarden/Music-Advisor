@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!--/*@thymesVar id="pagination" type="com.example.musicadvisor.model.pagination.Pagination"*/-->
+<nav aria-label="Pagination" th:if="${pagination.totalPages gt 0}">
+    <ul class="pagination justify-content-center font-weight-bold">
+        <li class="page-item" th:classappend="${pagination.currentPage eq 0} ? 'disabled'">
+            <a class="page-link"
+               th:href="@{/new-releases(page=${pagination.currentPage})}"
+               aria-label="Previous" title="Previous Page" data-toggle="tooltip">
+                <span aria-hidden="true">&laquo;</span>
+            </a>
+        </li>
+        <li class="page-item" th:classappend="${i eq pagination.currentPage + 1} ? 'active'"
+            th:each="i : ${#numbers.sequence( 1, pagination.totalPages, 1)}">
+            <a class="page-link" data-toggle="tooltip" th:href="@{/new-releases(page=${i})}"
+               th:text="${i}" th:title="${'Page '+ i}"></a>
+        </li>
+        <li class="page-item" th:classappend="${pagination.currentPage + 1 eq pagination.totalPages} ? 'disabled'">
+            <a class="page-link"
+               th:href="@{/new-releases(page=${pagination.currentPage + 2})}"
+               aria-label="Next" title="Next Page" data-toggle="tooltip">
+                <span aria-hidden="true">&raquo;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+</body>
+</html>
